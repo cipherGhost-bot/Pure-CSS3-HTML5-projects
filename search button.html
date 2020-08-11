@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search button</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			background: #e84118;
+		}
+
+		.searchbox {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background: #2f3640;
+			height: 40px;
+			border-radius: 40px;
+			padding: 10px;
+
+
+		}
+		.searchbox:hover > .search-txt{
+			width: 240px;
+			padding: 0 6px;
+		}
+		.searchbox:hover > .searchbutton{
+			background: white;
+		}
+		.searchbutton {
+			color:#e84118;
+			float: right;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			background: #2f3640;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: 0.4s;
+		}
+		.search-txt {
+			border:none;
+			background: none;
+			outline: none;
+			float: left;
+			padding: 0;
+			color: white;
+			font-size: 16px;
+			transition: 0.4s;
+			line-height: 40px;
+			width: 0px;
+		}
+	</style>
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
+</head>
+<body>
+	<div class="searchbox">
+		<input class="search-txt" type="text" name="" placeholder="Type to search">
+		<a class="searchbutton" href="#">
+		<i class="fa fa-search" aria-hidden="true"></i>
+	</div>
+</body>
+</html>

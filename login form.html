@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Animated login</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+			background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url("./images/land.jpg");
+			background-size: cover; /*#34495E*/;
+			/*background-color: #34495E;*/
+		}
+		.box {
+			width: 300px;
+			padding: 40px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background: #191919;
+			text-align: center;
+		}
+		.box h1 {
+			color: white;
+			text-transform: uppercase;
+			font-weight: 500;
+		}
+		.box input[type="text"],.box input[type="password"] {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #3498db;
+			padding: 14px 10px;
+			width: 200px;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: 0.25s;
+		}
+		.box input[type="text"]:focus,.box input[type="password"]:focus {
+			width: 280px;
+			border-color: #2ecc71;
+		}
+		.box input[type="submit"] {
+			border: 0;
+			background: none;
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+			border: 2px solid #3498db;
+			padding: 14px 40px;
+			outline: none;
+			color: white;
+			border-radius: 24px;
+			transition: 0.25s;
+			cursor: pointer;
+		}
+		.box input[type="submit"]:hover {
+			background: #2ecc71;
+		}
+	</style>
+	
+</head>
+<body>
+	<form id="signup" class="box" action="login-form.html" method="post">
+	
+	<h1>Sign up</h1>
+	<label for="username">
+	<input id="username" type="text" name="username" placeholder="Username">
+	</label>
+	<div id="feedback"></div>
+	<label for="password">
+	<input type="password" name="password" placeholder="Password">
+	></label>
+	<input type="submit" name="submit" value="Register">
+	
+	<script type="text/javascript">
+		 { 
+		let form = document.getElementById('signup');
+		form.addEventListener('submit',  function (e) {
+			e.preventDefault();
+			let elements=this.elements;
+			let username=this.username.value;
+			let msg="Thanks for Registering "+ username;
+			document.getElementById('signup').textContent = msg; 
+		},false);
+	}; 
+
+	{
+		let elUsername =document.getElementById('username');
+		let elMsg = document.getElementById('feedback');
+		function checkUsername(minlength) {
+			
+			if (elUsername.value.length<minlength) {
+				elMsg.className='warning';
+				elMsg.textContent="Not long enough , yet ...";
+			}
+			else
+				elMsg.textContent="";
+		}
+		function tipUsername() {
+			elMsg.className='tip';
+			elMsg.textContent="Username must be at least "+minlength+" characters long";
+		}
+		elUsername.addEventListener('focus',function() {tipUsername()},false);
+		elUsername.addEventListener('blur',function() {checkUsername(5)},false);
+	}
+
+
+	</script>
+</body>
+</html>
